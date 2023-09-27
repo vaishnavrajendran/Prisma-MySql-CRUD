@@ -3,18 +3,16 @@ const prisma = new PrismaClient();
 
 async function main() {
     try {
-        const response = await prisma.youtube_channels.findMany({
+        await prisma.youtube_channels.findMany({
             where: {
-                subscribers:{
-                    gte:0
+                subscribers: {
+                    gte: 0
                 },
-                name:{
-                    not:"Vaishnav R"
+                name: {
+                    not: "Vaishnav R"
                 }
             }
         })
-        console.log("Res", response);
-        
     } catch (error) {
         console.log("Error", error);
     } finally {

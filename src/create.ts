@@ -7,12 +7,10 @@ async function main() {
             { name: "Vaishnav2", description: "Dev", link: "www.vaishnav.com" },
             { name: "Edward2", description: "Dev", link: "www.edward.com" }
         ]
-        const response = await prisma.youtube_channels.createMany({
+        await prisma.youtube_channels.createMany({
             data,
             skipDuplicates: true
         })
-        console.log("Res", response);
-        
     } catch (error) {
         console.log("Error", error);
     } finally {

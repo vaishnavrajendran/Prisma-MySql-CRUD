@@ -3,18 +3,16 @@ const prisma = new PrismaClient();
 
 async function main() {
     try {
-        const response = await prisma.youtube_channels.updateMany({
-            where:{
-                name:{
-                    in:["Vaishnav R", "Edward2"]
+        await prisma.youtube_channels.updateMany({
+            where: {
+                name: {
+                    in: ["Vaishnav R", "Edward2"]
                 }
             },
             data: {
-                subscribers:500
+                subscribers: 500
             }
         })
-        console.log("Res", response);
-        
     } catch (error) {
         console.log("Error", error);
     } finally {
